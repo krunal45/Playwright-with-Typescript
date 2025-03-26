@@ -4,13 +4,13 @@ import data from '../tests/testData/mockData.json'
 
 test('Verify Page Title', async ({ loginPage }) => {
   
-    await loginPage.navigateTo('https://www.saucedemo.com');
+    await loginPage.navigateTo('/');
     const pageTitle = await loginPage.getPageTitle();
     expect(pageTitle).toEqual('Swag Labs');
 })
 
 test('Verify Login ', async ({ loginPage }) => {
-    await loginPage.navigateTo('https://www.saucedemo.com');
+    await loginPage.navigateTo('/');
     await loginPage.login(data.validLoginCredentials.userName,data.validLoginCredentials.password);
     expect(await loginPage.isElementVisible('a.shopping_cart_link')).toBe(true);
 }
